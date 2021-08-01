@@ -5,19 +5,19 @@ CREATE TABLE IF NOT EXISTS empresa
   PRIMARY KEY (id) 
   );
 
-CREATE TABLE countries 
+CREATE TABLE IF NOT EXISTS countries 
 ( id int(10) unsigned NOT NULL AUTO_INCREMENT, 
    continent_id int(11) NOT NULL, 
    name varchar(25) NOT NULL, 
    PRIMARY KEY (id) );
 
-CREATE TABLE continents 
+CREATE TABLE IF NOT EXISTS continents 
 ( id int(10) unsigned NOT NULL AUTO_INCREMENT, 
    name varchar(25) NOT NULL, 
    anual_adjustment int(11) NOT NULL, 
    PRIMARY KEY (id) );
 
-CREATE TABLE employees 
+CREATE TABLE IF NOT EXISTS  employees 
 ( id int(10) unsigned NOT NULL AUTO_INCREMENT, 
   country_id int(11) NOT NULL, 
   first_name varchar(25) NOT NULL, 
