@@ -1,0 +1,2 @@
+Ejercicio 1: Docker
+Configura un ambiente en docker que permita ejecutar un entorno web con el stack a tu elección. El contenedor de la base de datos debe ser diferente al que contenga tu aplicación, ej: Contenedor 1: Nginx, Contenedor 2: Mysql (composición de servicios docker)

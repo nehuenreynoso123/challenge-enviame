@@ -1,0 +1,33 @@
+version: "3.1"
+
+services:
+  nginx:
+    image: nginx
+    container_name: enviame_nginx
+    volumes:
+      - "${VOLUME_NGINX}:/etc/nginx/config.d"
+    ports:
+      - "${NGINX_PORT}:80"
+
+  db:
+    image: mysql
+    container_name: enviame_database
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - "${VOLUME_DB}:/var/lib/mysql"
+      - "./init_database.sql:/docker-entrypoint-initdb.d/init.sql:ro"
+
+    ports:
+      - "3306:3306"  
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_USER_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER_NAME}
+      MYSQL_PASSWORD: ${DB_USER_PASSWORD}
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
