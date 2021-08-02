@@ -54,6 +54,17 @@ internamente existe un archivo index el cual es el encargado de inyectar depende
 
 4. Capa de almacenamiento: es el encargado de base de datos , se utiliza un solo archivo para todos los componentes para que sea clean code, esto sirve para en el caso de que se quiera migrar la base de datos a otra tecnologia lo que se hace es modificar este archivo.
 
+### Ejercicio 3
+Se busco toda secuencia de caracteres que sean palindromas, en este caso se compara el primer caracter con el segundo caracter si es correcto se guarda como palindromo,
+caso contrario pregunta el primer caracter con el tercer caracter si es correcto entra en un bucle.
+en el cual empieza a preguntar el primer caracter menos 1 se desplaza una posicion hacia atras y el caracter final mas 1 se desplaza hacia la derecha
+y se ejecuta un bucle infinito hasta que encuentra una palabra que no sea palindromo, el resultado del bucle se guarda en una variable la cual se muestra posteriormente.
+ 
+###### logica de negocio:
+ /api/components/ejercicio/controller
+###### Ver en api:
+http://localhost:3000/ejercicio/3
+
 ### Ejercicio 4
 Se desarrollo un nuevo endpoint llamado enviame el cual acepta el metodo post y se puede enviar data,  en caso de que no se envie una data se envia una data por default esta se encuentra en el archivo api/component/envio/controller.js
 el cual va a insertar en la base de datos N cantidad de datos fake N cantidad es un requisito del parametro ejemplo: http://localhost:3000/envio/5
