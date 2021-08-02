@@ -1,11 +1,15 @@
 const faker = require('faker');
 const fibonacci = require('../../utils/fibonacci');
+const fibonacci = require('../../utils/palindrome');
+
 
 
 module.exports=(store)=>{
     async  function ejercicio_3(){   
         return new Promise((resolve,reject)=>{
-            resolve("ejercicio 3")
+            const text="afoolishconsistencyisthehobgoblinoflittlemindsadoredbylittlestatesmenandphilosophersanddivineswithconsistencyagreatsoulhassimplynothingtodohemayaswellconcernhimselfwithhisshadowonthewallspeakwhatyouthinknowinhardwordsandtomorrowspeakwhattomorrowthinksinhardwordsagainthoughitcontradicteverythingyousaidtodayahsoyoushallbesuretobemisunderstoodisitsobadthentobemisunderstoodpythagoraswasmisunderstoodandsocratesandjesusandlutherandcopernicusandgalileoandnewtonandeverypureandwisespiritthatevertookfleshtobegreatistobemisunderstood";
+            const result=palindome.getTextPalindromes();
+            resolve(result)
         })
     }
     async  function ejercicio_5(){      
