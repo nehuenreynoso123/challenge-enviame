@@ -59,12 +59,12 @@ sudo service ufw restart
 > 1. Clonar repositorio
 
 ```bash
-git@github.com:nehuenreynoso123/challenge-enviame.git
+git clone git@github.com:nehuenreynoso123/challenge-enviame.git
 ```
 > 2. Mover a la carpeta raiz del proyecto.
 
 ```bash
-cd  /challenge-enviame/stack
+cd ./challenge-enviame/stack 
 ```
 > 3.Desplegar el proyecto
 
