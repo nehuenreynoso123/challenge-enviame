@@ -9,7 +9,6 @@ const headers= {
     'Content-Type':'application/json'
 };
 
-console.log(headers)
 const apiInstance = axios.create({
     baseURL: URL_BASE,
     headers

@@ -58,11 +58,7 @@ function insertFakeData(req,resp,next){
     const quantity = req.params.quantity;
     controller.insertFakeData(quantity)
     .then((data)=>response.success(req,resp,data))
-    .catch((error)=>{
-        console.log(error)
-        response.error(req,req,error,500)
-    })
-
+    .catch(next)
 }
 
 module.exports=router

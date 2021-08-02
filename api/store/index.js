@@ -83,6 +83,13 @@ function update(table,data){
     })
 }
 
-function query(table){}
+function query(sqlQuery){
+    return new Promise((resolve,reject)=>{
+        connection.query(sqlQuery,(error,result)=>{            
+            if(error)reject(error)
+            resolve(result)
+        })
+    })
+}
 
-module.exports={list,getId,update,insert,remove}
+module.exports={list,getId,update,insert,remove,query}
