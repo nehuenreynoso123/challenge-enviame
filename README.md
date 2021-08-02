@@ -37,7 +37,11 @@ hay un endpoint el cual es POST  /fake/:quantity
 se pueden insertar N cantidad de registros en la base de datos.
 utilize una arquictectura limpia siguiendo el patron de diseño:
 
+(https://static.platzi.com/media/user_upload/diagrama-825e902b-0966-40f0-8231-65b99f7206c1.jpg)
+
+
 el cual cuenta de cuatro capas:
+
 1. Capa de configuracion: es el archivo server.js. El  cual contiene toda la configuracion del servidor como los puertos y los cors
 
 2. Capa de red: contiene un archivo de response y routes.
@@ -58,6 +62,8 @@ utilize el mismo patron de diseño que en el ejercicio 2 , y utilizo la inyeccio
 Utilize una formula matematica generica de la sucession de fibonacci, ya que utilizando bucles no era la forma mas optima de encontrar la sucession,
 se puede calcular el divisor de un numero entero utilizando sus factores primos el cual devuelve el resto de su division.
 Factor primo ejemplo:
+
+(https://yosoytuprofe.20minutos.es/wp-content/uploads/2019/11/descomponer-en-factres-primos.png)
 
 entra en un bucle infinito hasta encontrar un numero que tenga mil divisores, este es un proceso muy largo ya que requiere una gran capacidad de computos, ya que es casi exponencial los valores del fibonacci ya que por cada numero es resultado es muy grande y tratar de buscar ese numero primo es muy grande por lo tanto es muy lento.
 
