@@ -1,9 +1,19 @@
-FROM node:12.18.1
+FROM node:alpine
+ENV NODE_ENV=developmen
 
 WORKDIR /app
 
-COPY ["package.json", "package-lock.json*", "./"]
 
-RUN npm install 
+ENV PATH /app/node_modules/.bin:$PATH
 
-CMD [ "npm","run","dev" ]
+
+COPY package.json ./
+
+COPY package-lock.json ./
+
+RUN npm install
+
+
+
+
+CMD ["npm", "run", "dev"]
