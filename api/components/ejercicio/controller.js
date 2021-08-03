@@ -1,36 +1,43 @@
 const faker = require('faker');
+const primeFactors = require('prime-factors');
 const fibonacci = require('../../utils/fibonacci');
-const fibonacci = require('../../utils/palindrome');
+const palindome = require('../../utils/palindrome');
 
 
 
 module.exports=(store)=>{
     async  function ejercicio_3(){   
         return new Promise((resolve,reject)=>{
-            const text="afoolishconsistencyisthehobgoblinoflittlemindsadoredbylittlestatesmenandphilosophersanddivineswithconsistencyagreatsoulhassimplynothingtodohemayaswellconcernhimselfwithhisshadowonthewallspeakwhatyouthinknowinhardwordsandtomorrowspeakwhattomorrowthinksinhardwordsagainthoughitcontradicteverythingyousaidtodayahsoyoushallbesuretobemisunderstoodisitsobadthentobemisunderstoodpythagoraswasmisunderstoodandsocratesandjesusandlutherandcopernicusandgalileoandnewtonandeverypureandwisespiritthatevertookfleshtobegreatistobemisunderstood";
-            const result=palindome.getTextPalindromes();
+            const text = "afoolishconsistencyisthehobgoblinoflittlemindsadoredbylittlestatesmenandphilosophersanddivineswithconsistencyagreatsoulhassimplynothingtodohemayaswellconcernhimselfwithhisshadowonthewallspeakwhatyouthinknowinhardwordsandtomorrowspeakwhattomorrowthinksinhardwordsagainthoughitcontradicteverythingyousaidtodayahsoyoushallbesuretobemisunderstoodisitsobadthentobemisunderstoodpythagoraswasmisunderstoodandsocratesandjesusandlutherandcopernicusandgalileoandnewtonandeverypureandwisespiritthatevertookfleshtobegreatistobemisunderstood";
+            const result = palindome.getTextPalindromes(text);
             resolve(result)
         })
     }
     async  function ejercicio_5(){      
         
        return new Promise((resolve,reject)=>{
-        let count=0;
-        let data=[];
-        let numFibonacci=0;
-        const maxDivisiones=1000;
-        while(data.length<=maxDivisiones){            
-            data=[]
-            numFibonacci = fibonacci(count)                    
-            for(let divisores=numFibonacci;divisores>=0;divisores--)
-            {
-                if(numFibonacci%divisores===0){
-                    data.push(divisores)        
-                }
+        let count = 0;
+        let resultPrimeFactor = 0;
+        let numFibonacci = 0;
+        const maxDivisiones = 1000;
+        while(true){        
+            numFibonacci = fibonacci(count)
+            const primes = primeFactors(numFibonacci);
+            const unique =[ ... new Set(primes)]
+            resultPrimeFactor = unique.reduce((current,idx)=>{
+                const value = primes.filter((item)=>item===idx).length;  
+                return (value+1)*current    
+            },1);
+
+            if(resultPrimeFactor >= maxDivisiones){
+                data = resultPrimeFactor;
+                break;
             }
-            count++;
+            count++;   
+         
         }
-        const message=`${numFibonacci} es primer numero de la serie de que tiene mas de ${maxDivisiones} divisores, de hecho tiene ${data.length} divisores!`;
+        
+        const message = `${numFibonacci} es primer numero de la serie de que tiene mas de ${maxDivisiones} divisores, de hecho tiene ${resultPrimeFactor} divisores!`;
         resolve(message)
         
        })
@@ -43,9 +50,9 @@ module.exports=(store)=>{
              'min': 0,
              'max': 20
          });              
-         const rangeDays = fibonacci(randomNumber);
+         const rangeDays = fibonacci(randomNumber-1);
          const distance = randomNumber*100;
-         const message = `La distancia es menor a ${distance} km , se entrega en ${rangeDays} días`;
+         const message = `Rango ${randomNumber}. La distancia es menor a ${distance} km , se entrega en ${rangeDays} días`;
          
          resolve(message);
          
