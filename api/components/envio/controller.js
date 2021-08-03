@@ -1,5 +1,5 @@
-const { address } = require("faker")
-var faker = require('faker');
+const saveTextFile = require("./../../utils/saveFile")
+const path = require('path')
 
 const fakeData={
     "shipping_order": {
@@ -37,9 +37,15 @@ const fakeData={
 const table = 'deliveries'
 
 module.exports=(store)=>{
-    async function insert(data){
-        if(!data) data=fakeData;                    
-        return await store.insert(table,data)    
+    async function insert(data){        
+        if(!data) data=fakeData;                 
+        return await store.insert(table,data).then((resp)=>{            
+            const dest = path.resolve(__dirname,"fileResponseSave")        
+            const fileName= `${Date.now()}.json`;
+            const fileContent=JSON.stringify(resp)
+            saveTextFile(dest,fileName,fileContent);    
+            return resp;
+        });
     }  
     
     return {insert}
